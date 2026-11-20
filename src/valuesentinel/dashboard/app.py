@@ -147,7 +147,7 @@ if page == "Dashboard":
                 })
 
             df = pd.DataFrame(rows)
-            st.dataframe(df, use_container_width=True, hide_index=True)
+            st.dataframe(df, width="stretch", hide_index=True)
 
             # Alert controls
             st.subheader("Alert Controls")
@@ -461,7 +461,7 @@ elif page == "Alert History":
             if filter_status != "All":
                 df = df[df["Delivery"] == filter_status]
 
-            st.dataframe(df, use_container_width=True, hide_index=True)
+            st.dataframe(df, width="stretch", hide_index=True)
 
 
 # ══════════════════════════════════════════════════════
@@ -526,7 +526,7 @@ elif page == "Manage Tickers":
                 })
 
             df = pd.DataFrame(rows)
-            st.dataframe(df, use_container_width=True, hide_index=True)
+            st.dataframe(df, width="stretch", hide_index=True)
 
             # Refresh controls
             col1, col2 = st.columns(2)

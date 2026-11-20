@@ -20,9 +20,9 @@ RUN mkdir -p data logs
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir ".[postgres]"
 
-# Run as non-root user
+# Run as non-root user (home dir is needed by streamlit for ~/.streamlit)
 RUN groupadd --gid 1000 appuser && \
-    useradd --uid 1000 --gid 1000 --no-create-home appuser && \
+    useradd --uid 1000 --gid 1000 --create-home appuser && \
     chown -R appuser:appuser /app
 
 # Entrypoint: fix ownership of mounted volumes, then drop to appuser
