@@ -17,7 +17,8 @@ COPY alembic.ini .
 RUN mkdir -p data logs
 
 # Install the package + postgres driver
-RUN pip install --no-cache-dir ".[postgres]"
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir ".[postgres]"
 
 # Run as non-root user
 RUN groupadd --gid 1000 appuser && \

@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "valuesentinel"
 version = "1.1.0"
 description = "Financial valuation metrics alerter for value investors"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = "MIT"
 dependencies = [
     "yfinance>=1.0",
@@ -31,7 +31,7 @@ dev = [
     "types-requests",
     "pandas-stubs",
 ]
-postgres = ["psycopg2-binary>=2.9"]
+postgres = ["psycopg[binary]>=3.2"]
 all = ["valuesentinel[ibkr,dev,postgres]"]
 
 [project.scripts]
@@ -41,12 +41,14 @@ valuesentinel = "valuesentinel.cli:main"
 where = ["src"]
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 line-length = 100
+
+[tool.ruff.lint]
 select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "RUF"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
